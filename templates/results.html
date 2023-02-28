@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Results</title>
+        <style>
+            body{
+               background: rgba(0, 0, 0, 0.4)url(https://i.pinimg.com/originals/bc/6c/17/bc6c171eee288a2f1e124c749303b24e.gif);
+               background-size: cover;
+               background-blend-mode: darken;
+            }
+   
+            h1{
+               color: lightblue;
+               text-align: center;
+               font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+
+            input[type="number"]{
+                width: 220px;
+                height: max-content;
+                background-color: rgba(0, 0, 0, 0.4);
+                background-blend-mode: darken;
+                color: white;
+                text-align: center;
+                font-size: 20px;
+                border-radius: 20px;
+                height: 30px;
+                border: none;
+                outline: none;
+            }
+   
+            thead{
+                color: white;
+                font-family:fantasy;
+            }
+   
+            table{
+               color: lightblue;
+               background:rgba(0, 0, 0, 0.4) url(https://i.pinimg.com/originals/3d/08/e0/3d08e03cb40252526fee2036a67f07f1.gif);
+               margin-left: auto;
+               background-blend-mode: darken;
+               margin-right: auto;
+               text-align: center;
+               font-size: 20px;
+               font-family: monospace;
+            }
+            button{
+                width: 220px;
+                font-family: sans-serif;
+                background-color: blue;
+                color: white;
+                text-align: center;
+                font-size: 20px;
+                border-radius: 20px;
+                border: 3px solid blue;
+                outline: none;
+                
+            }
+            button:hover{
+                cursor: pointer;
+                color: white;
+                background-color: transparent;
+                border: 3px solid blue;
+                transition: 0.3s ease;
+            }
+
+            a{
+                color: white;
+                text-decoration: none;
+            }
+            p{
+                color: white;
+                font-family: sans-serif;
+                margin-top: 30px;
+                text-align: center;
+            }
+   
+   
+         </style> 
+    </head>
+    <body>
+        <h1 class="colorful">Student`s Database System</h1><br><br>
+        <form action="http://127.0.0.1:5000/student", method="post">
+            <p><input type="number" name="search"></p>
+            <p><button>
+                <a href="{{ url_for('student') }}">Search Student</a>
+            </button></p>
+        </form>
+
+        <table id="tblCustomers" style="width: 70%;" border=1>
+            <thead>
+                <td>Name</td>
+                <td>ID</td>
+                <td>Subject</td>
+                <td>Homework N1</td>
+                <td>Homework N2</td>
+                <td>Homework N3</td>
+                <td>Average Points</td>
+                <td>Pass/Fail</td>
+            </thead>
+
+            {% for row in data %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p><button>
+            <a href="{{ url_for('main') }}">Go To Register</a>
+        </button></p>
+    </body>
+</html>
